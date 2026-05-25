@@ -1,3 +1,6 @@
+# Copyright (c) 2024 Zou Group
+# Licensed under the MIT License
+# https://opensource.org/licenses/MIT
 from .engine.guardrails import *
 from vllm import LLM, SamplingParams
 from vllm.sampling_params import RequestOutputKind
