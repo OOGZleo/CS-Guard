@@ -960,14 +960,14 @@ class SelfReminder(engine):
         self.llm.set_system_prompt(self.system_prompt)
         self.llm.set_generation_config()
 
-    def generate(self, batch_input, n=5):
+    def generate(self, batch_input):
 
         if self.output_storage==None:
             raise TypeError("output storage unset")
         
         messages = self.construct_prompt(batch_input)
         print("message: ",  messages)
-        outputs = self.llm.generate(messages, n=n)
+        outputs = self.llm.generate(messages)
         return outputs
 
 
@@ -1194,6 +1194,9 @@ class PAT(engine):
         
         messages = self.construct_prompt(batch_input)
         print("message: ", messages)
-        responses = self.llm.generate(messages, n, history=history)
-        
+        try:
+            responses = self.llm.generate(messages, n, history=history)
+        except Exception as e:
+            responses = self.llm.generate(messages)
+
         return responses

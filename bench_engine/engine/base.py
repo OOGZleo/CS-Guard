@@ -266,7 +266,7 @@ class Gptoss(engine):
         for opt in outputs:
             answer_list = []
             for output_value in opt.outputs:
-                answer_list.append(output_value.text)
+                answer_list.append(output_value.text.strip().split('assistantfinal')[-1])
             output_list.append(answer_list)
         return output_list
 

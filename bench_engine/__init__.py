@@ -34,7 +34,7 @@ __ATTACK_NAME_SHORTCUTS__ = {
     "devmoderanti",
     "flipattack",
     "ucar",
-    "evilconfidant"
+    "evilconfident"
 }
 
 __DEFENSE_NAME_SHORTCUTS__ = {
@@ -106,7 +106,7 @@ def get_attack_engine(engine_name: str="none"):
         llm_engine = FlipAttack
     elif engine_name == "ucar":
         llm_engine = UCAR
-    elif engine_name == "evilconfidant":
+    elif engine_name == "evilconfident":
         llm_engine = EvilConfidant
 
     return llm_engine
