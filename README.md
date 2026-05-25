@@ -31,13 +31,17 @@ python generate_label.py -o qwen3guard_output.jsonl -d Qwen3GuardGen -m i -dt Me
 python generate_label.py -o qwen3guard_gptoss_classification.jsonl -m io -d Qwen3GuardGen -dt MetaTTP -dir gptoss_output.jsonl -st eval -ap False -sd t2c
 
 ### Jailbreak
-python generate_label.py -o gptoss_EvilConfident_output.jsonl -a EvilConfident -dt MetaTTP -dir dataset/mitre_benchmark_100_per_category_with_augmentation.json -st test -b gptoss -ap False -sd t2c
+python generate_label.py -o gptoss_EvilConfident_output.jsonl -a evilconfident -dt MetaTTP -dir dataset/mitre_benchmark_100_per_category_with_augmentation.json -st test -b gptoss -ap False -sd t2c
 
 ### Jailbreak vs guardrail
-python generate_label.py -o gptoss_SelfReminder_EvilConfident_output.jsonl -a EvilConfident -d SelfReminder -dt MetaTTP -dir dataset/mitre_benchmark_100_per_category_with_augmentation.json -st test -b gptoss -ap False -sd t2c
+python generate_label.py -o gptoss_SelfReminder_EvilConfident_output.jsonl -a evilconfident -d SelfReminder -dt MetaTTP -dir dataset/mitre_benchmark_100_per_category_with_augmentation.json -st test -b gptoss -ap False -sd t2c
 
 ## Code-to-code
 python generate_label.py -o gptoss_codeinfill_output.jsonl -dt infill -dir dataset/code_infilling_prompt.json -st test -b gptoss -ap False -sd c2c
+
+python generate_label.py -o gptoss_codetranslate_output.jsonl -dt translate -dir dataset/code_translation_prompt.json -st test -b gptoss -ap False -sd c2c
+
+python generate_label.py -o gptoss_codecomplete_output.jsonl -dt complete -dir dataset/code_completion_prompt.json -st test -b gptoss -ap False -sd c2c
 ```
 
 ## Label the response
