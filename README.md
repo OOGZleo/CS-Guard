@@ -8,7 +8,7 @@ CS-Guard considers a layered taxonmy:
 - **Operation-layer** 2 operation types are considered. **classification** and **generation**. Classification classify malicious prompt or jailbroken responses. Generation operation refers to any mechanism that controls a base LLM's output generation to produce safer responses.
 - **Position-layer** 3 position types are considered. **1) Input-type** guardrails detect malicious prompts before LLM processing. **2) Output-type** guardrails assess both the prompt and the LLM's response to determine if a jailbreak succeeded, permitting any response that does not comply with the malicious prompt. **3) Flexible-type** guardrails secure LLMs through neither prompt detection nor response assessment, generation-operation guardrails are a key example.
 
-To register a base model/white-box guardrail, open **bench_engine/engine/base.py** and implement a custom class using existing class as reference.
+To register a base model/white-box guardrail, open **bench_engine/engine/base.py** and implement a custom class using existing class as reference. If you use any quantized LLMs, please download it first and then specify its directory in your custom class.
 To register a guardrail, open **bench_engine/engine/guardrails.py** and implement a custom class using existing class as reference. You should specify procedure variable to match the operation layer. You can customize the label collection procedure, prompt construction, generation for different guardrails and position layers.
 
 # Experiment
