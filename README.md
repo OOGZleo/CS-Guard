@@ -45,24 +45,24 @@ To label the LLM response, use the following command:
 ```
 python generate_label.py -o "Labeler output destination" -j "base LLM serve as ai labeler" -dt "MetaTTP for text-to-code, infill or translate or complete for code-to-code" -dir "input file" -m io -st eval -sd "t2c or c2c"
 
-python generate_label.py -o gptoss_qwen_labeled.jsonl -j gptoss -dt MetaTTP -dir qwen_output.jsonl -m io -st eval -sd t2c
+python generate_label.py -o gptoss_output_labeled.jsonl -j gptoss -dt MetaTTP -dir gptoss_output.jsonl -m io -st eval -sd t2c
 ```
 ## Calculate metrics
 Use the following examples as reference for calculating metrics:
 ```
 from bench_engine.engine.utilities import print_result, get_label, calculate_F1, calculate_difference, calculate_asr
 # ASR
-result = print_result("qwen_codeinfill_output.jsonl")
+result = print_result("gptoss_codeinfill_output.jsonl")
 asr = calculate_asr(result, "bad_list")
 
 # ASR reduction
-gt_result = print_result("qwen_codeinfill_output.jsonl")
-pre_result = print_result("qwen_codeinfill_SelfReminder_output.jsonl")
+gt_result = print_result("gptoss_output.jsonl")
+pre_result = print_result("gptoss_SelfReminder_output.jsonl")
 result = calculate_difference(gt_result, pre_result)
 
 # F1
 ## To calculate F1, you should first sample a balanced response set from the labeled response file, and then extract corresponding response from the output classifier's output file.
-gt_result = get_label("gptoss_qwen_labeled_balanced.jsonl")
-pre_result = get_label("qwen3guard_qwen_classification.jsonl")
+gt_result = get_label("gptoss_output_labeled_balanced.jsonl")
+pre_result = get_label("qwen3guard_gptoss_classification.jsonl")
 F1_score = calculate_F1(gt_result, pre_result)
 ```
