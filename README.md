@@ -22,13 +22,13 @@ python generate_label.py -o "output destination" -a "attack method" -dt "MetaTTP
 python generate_label.py -o qwen_output.jsonl -dt MetaTTP -dir dataset/mitre_benchmark_100_per_category_with_augmentation.json -st test -b qwen -ap False -sd t2c
 
 ### Guardrail
-python generate_label.py -o qwen_SmoothLLM_output.jsonl -d SmoothLLM -dt MetaTTP -dir dataset/mitre_benchmark_100_per_category_with_augmentation.json -st test -b qwen -ap False -sd t2c
+python generate_label.py -o qwen_SmoothLLM_output.jsonl -d SmoothLLM -m i -dt MetaTTP -dir dataset/mitre_benchmark_100_per_category_with_augmentation.json -st test -b qwen -ap False -sd t2c
 
 python generate_label.py -o qwen_SelfReminder_output.jsonl -d SelfReminder -dt MetaTTP -dir dataset/mitre_benchmark_100_per_category_with_augmentation.json -st test -b qwen -ap False -sd t2c
 
-python generate_label.py -o qwen3guard_output.jsonl -d Qwen3GuardGen -dt MetaTTP -dir dataset/mitre_benchmark_100_per_category_with_augmentation.json -st test -ap False -sd t2c
+python generate_label.py -o qwen3guard_output.jsonl -d Qwen3GuardGen -m i -dt MetaTTP -dir dataset/mitre_benchmark_100_per_category_with_augmentation.json -st test -ap False -sd t2c
 
-python generate_label.py -o qwen3guard_qwen_classification.jsonl -d Qwen3GuardGen -dt MetaTTP -dir qwen_output.jsonl -st eval -ap False -sd t2c
+python generate_label.py -o qwen3guard_qwen_classification.jsonl -m io -d Qwen3GuardGen -dt MetaTTP -dir qwen_output.jsonl -st eval -ap False -sd t2c
 
 ### Jailbreak
 python generate_label.py -o qwen_EvilConfident_output.jsonl -a EvilConfident -dt MetaTTP -dir dataset/mitre_benchmark_100_per_category_with_augmentation.json -st test -b qwen -ap False -sd t2c
