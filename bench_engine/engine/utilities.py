@@ -128,6 +128,7 @@ def calculate_difference(gt, pre):
     return result
 
 def calculate_asr(obj, target_list):
+    # set target_list to "good_list" for SmoothLLM
     asr = math.floor((len(obj[target_list])/len(obj['full_list']))*1000)/10
 
     # print("ASR reduction: ", result)
