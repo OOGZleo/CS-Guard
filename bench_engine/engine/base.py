@@ -572,7 +572,7 @@ class venice(engine):
         super().__init__()
 
         self.client = OpenAI(
-            api_key="VENICE_INFERENCE_KEY_kGXNxrL5TByjGJ1eXSKiYYRVNx4jliigVQztN0L0xV",
+            api_key="<your api key>",
             base_url="https://api.venice.ai/api/v1",
             max_retries=1000,
             timeout=7200
